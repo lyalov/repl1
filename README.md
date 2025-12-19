@@ -43,3 +43,38 @@ Slave не принимает запись → нельзя масштабиро
 Быстрое переключение при отказе
 Минусы:
 Сложность может возниикнуть ,   риск конфликтов при одновременной записи в одну и ту же таблицу на обоих серверах
+
+
+
+
+
+задание 2
+
+
+
+
+ОТвет
+
+
+master.cnf
+```bash
+[mysqld]
+server-id=1
+log-bin=mysql-bin
+binlog-format=row
+gtid-mode=ON
+enforce-gtid-consistency=O
+```
+
+
+slave.cnf
+
+```bash
+[mysqld]
+server-id=2
+log-bin=mysql-bin
+binlog-format=row
+gtid-mode=ON
+enforce-gtid-consistency=ON
+read-only=ON
+```
