@@ -6,8 +6,6 @@
 
 Ответить в свободной форме.
 
-
-
 ОТВЕТ1 
 Различия между режимами репликации: master-slave и master-master на примере MySQL
 В MySQL репликация — это процесс копирования данных с одного источника на другой  он же реплика. Основные режимы — master-slave и master-master — отличаются архитектурой, направлением потока данных и сценариями использования.
@@ -17,7 +15,7 @@
 Один сервер выступает в роли master (ведущего) — на нём происходят все записи (INSERT, UPDATE, DELETE).
 Один или несколько серверов — slave (ведомых) — получают копию данных с master и только читают (или почти только читают).
 Направление репликации:
-Однонаправленная: master → slave
+Однонаправленная: master  --> slave
 
 Пример использования:
 Разгрузка master от запросов на чтение: веб-приложение читает данные с slave, а пишет — на master.
@@ -44,15 +42,9 @@ Slave не принимает запись → нельзя масштабиро
 Минусы:
 Сложность может возниикнуть если будет конфликт  то   может  произойти   одновременная запись  в одну и ту же таблицу на обоих серверах.
 
-
-
-
 Задание 2
 Выполните конфигурацию master-slave репликации, примером можно пользоваться из лекции.
 Приложите скриншоты конфигурации, выполнения работы: состояния и режимы работы серверов.
-
-
-
 
 ответ 2
 
@@ -77,13 +69,8 @@ gtid-mode=ON
 enforce-gtid-consistency=ON
 read-only=ON
 ```
-
-slave-status1.png
-
-show_variables_like.png
-
-show_variables_like_read.png
-
-select_master.png
-
-select_slave.png
+![alt text](https://github.com/lyalov/repl1/blob/main/slave-status1.png)
+![alt text](https://github.com/lyalov/repl1/blob/main/show_variables_like.png)
+![alt text](https://github.com/lyalov/repl1/blob/main/show_variables_like_read.png)
+![alt text](https://github.com/lyalov/repl1/blob/main/select_master.png)
+![alt text](https://github.com/lyalov/repl1/blob/main/select_slave.png)
